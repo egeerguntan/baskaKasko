@@ -1,20 +1,24 @@
-import { StatusBar } from "expo-status-bar";
-import { StyleSheet, Text, View } from "react-native";
+import { StatusBar as ExpoStatusBar } from "expo-status-bar";
+import { StatusBar, SafeAreaView, StyleSheet, View, Text } from "react-native";
+import React, { useState } from "react";
+import CameraPage from "./src/components/CameraPage.js";
 
 export default function App() {
+  // const [visible, setVisible] = useState(null);
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app???</Text>
-      <StatusBar style="auto" />
-    </View>
+    <>
+      <SafeAreaView style={styles.container}>
+        <CameraPage />
+      </SafeAreaView>
+      <ExpoStatusBar style="auto" />
+    </>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
+    marginTop: StatusBar.currentHeight,
     flex: 1,
-    backgroundColor: "#fff",
-    alignItems: "center",
-    justifyContent: "center",
+    backgroundColor: "red",
   },
 });
