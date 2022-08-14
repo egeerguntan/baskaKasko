@@ -1,14 +1,45 @@
 import { StatusBar as ExpoStatusBar } from "expo-status-bar";
-import { StatusBar, SafeAreaView, StyleSheet, View, Text } from "react-native";
+import {
+  StatusBar,
+  SafeAreaView,
+  StyleSheet,
+  View,
+  Text,
+  Button,
+} from "react-native";
 import React, { useState } from "react";
-import CameraPage from "./src/components/CameraPage.js";
+import HomeScreenNavigator from "./src/Navigation/HomeScreenNavigation";
+import { NavigationContainer } from "@react-navigation/native";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
+
+function LoginScreen({ navigation }) {
+  return (
+    <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
+      <Button title="Log In" onPress={() => navigation.navigate("Home")} />
+    </View>
+  );
+}
+
+const Stack = createNativeStackNavigator();
 
 export default function App() {
-  // const [visible, setVisible] = useState(null);
   return (
     <>
       <SafeAreaView style={styles.container}>
-        <CameraPage />
+        <NavigationContainer>
+          <Stack.Navigator initialRouteName="Login">
+            <Stack.Screen
+              name="Home"
+              component={HomeScreenNavigator}
+              options={{ headerShown: false }}
+            />
+            <Stack.Screen
+              name="Login"
+              component={LoginScreen}
+              options={{ headerShown: false }}
+            />
+          </Stack.Navigator>
+        </NavigationContainer>
       </SafeAreaView>
       <ExpoStatusBar style="auto" />
     </>
