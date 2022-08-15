@@ -1,7 +1,7 @@
 import { StyleSheet, View, Text } from "react-native";
-import { CameraButton } from "./CameraButton.js";
+import { CameraButton } from "../Components/CameraButton.js";
 import React, { useState } from "react";
-import { LogoutButton } from "./LogoutButton.js";
+import { LogoutButton } from "../Components/LogoutButton.js";
 
 export default function HomeScreen({ navigation }) {
   const [visible, setVisible] = useState(null);
