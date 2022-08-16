@@ -1,14 +1,16 @@
 import { StyleSheet, View, Text } from "react-native";
 import { CameraButton } from "../Components/CameraButton.js";
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { LogoutButton } from "../Components/LogoutButton.js";
+import { AuthenticationContext } from "../Authentication/Authentication.context";
 
 export default function HomeScreen({ navigation }) {
+  const { onLogout } = useContext(AuthenticationContext);
   const [visible, setVisible] = useState(null);
   return (
     <View style={styles.container}>
       <View style={styles.logout}>
-        <LogoutButton size={60} onPress={() => console.log("pressed logout")} />
+        <LogoutButton size={60} onPress={() => onLogout()} />
       </View>
       <View style={styles.textBox}>
         <Text style={styles.text}>Kadranin fotoğrafini çekiniz</Text>

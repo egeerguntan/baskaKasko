@@ -9,10 +9,11 @@ import {
 
 import { AuthenticationContext } from "../Authentication/Authentication.context";
 
-const LoginScreen = () => {
+const RegisterScreen = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const { isLoading, onLogin, error } = useContext(AuthenticationContext);
+  const [repeatedPassword, setRepeatedPassword] = useState("");
+  const { isLoading, onRegister, error } = useContext(AuthenticationContext);
   return (
     <ImageBackground
       source={require("../Assets/Images/vivid-blurred-colorful-wallpaper-background.jpg")}
@@ -38,6 +39,16 @@ const LoginScreen = () => {
           autoCapitalize="none"
           onChangeText={(password) => setPassword(password)}
         />
+        <View style={styles.space} />
+        <TextInput
+          style={styles.input}
+          label="Şifre tekrarı"
+          value={repeatedPassword}
+          secureTextEntry
+          keyboardType="password"
+          autoCapitalize="none"
+          onChangeText={(password) => setRepeatedPassword(password)}
+        />
         {error && (
           <View style={styles.errorContainer}>
             <Text variant="error">{error}</Text>
@@ -46,13 +57,13 @@ const LoginScreen = () => {
         <View style={styles.space} />
         {!isLoading ? (
           <Button
-            title="login"
-            icon="lock-open-outline"
+            title="register"
+            icon="email"
             mode="contained"
-            onPress={() => onLogin(email, password)}
+            onPress={() => onRegister(email, password, repeatedPassword)}
             buttonColor="#254b8f"
           >
-            Giriş yap
+            Kayıt ol
           </Button>
         ) : (
           <ActivityIndicator animating={true} color="blue" />
@@ -94,4 +105,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default LoginScreen;
+export default RegisterScreen;
