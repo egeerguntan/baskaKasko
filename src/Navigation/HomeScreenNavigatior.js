@@ -13,9 +13,10 @@ const HomeNavigator = () => {
         component={HomeScreen}
         options={{ headerShown: false }}
       />
-      <HomeStack.Screen name="Photo" component={() => <Text> Photo </Text>} />
     </HomeStack.Navigator>
   );
 };
 
 export default HomeNavigator;
+
+/* <HomeStack.Screen name="Photo" component={() => <Text> Photo </Text>} /> */

@@ -1,0 +1,13 @@
+{
+  "functions": {
+    "ignore": [
+      "node_modules",
+      ".git",
+      "firebase-debug.log",
+      "firebase-debug.*.log"
+    ]
+  },
+  "react-native": {
+    "ml_vision_ocr_model": true
+  }
+}
