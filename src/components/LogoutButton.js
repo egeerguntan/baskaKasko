@@ -8,7 +8,7 @@ export const LogoutButton = ({ ...props }) => {
       style={[styles(props.size).radius]}
       onPress={props.onPress}
     >
-      <SimpleLineIcons name="logout" size={30} color="white" />
+      <SimpleLineIcons name="logout" size={40} color="white" />
     </TouchableOpacity>
   );
 };
