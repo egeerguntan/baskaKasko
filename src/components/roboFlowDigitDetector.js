@@ -13,7 +13,7 @@ const labels = {
   9: "7",
   10: "8",
 };
-const colabFlaskAPIURL = "http://2922-35-203-189-141.ngrok.io" + "/predict";
+const colabFlaskAPIURL = "http://027a-35-196-73-215.ngrok.io" + "/predict";
 const roboFlowDigitDetector = async (sourceURI, x, y, w, h) => {
   let croppedURI = await manipulateAsync(sourceURI, [
     {
@@ -45,6 +45,21 @@ const roboFlowDigitDetector = async (sourceURI, x, y, w, h) => {
     textArray.map((char, index) => {
       if (char === "S") {
         textArray[index] = "5";
+      }
+      if (char === "B") {
+        textArray[index] = "8";
+      }
+      if (char === "I") {
+        textArray[index] = "1";
+      }
+      if (char === "D") {
+        textArray[index] = "0";
+      }
+      if (char === "!") {
+        textArray[index] = "1";
+      }
+      if (char === "/") {
+        textArray[index] = "1";
       }
     });
     text = textArray.join("");

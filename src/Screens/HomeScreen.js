@@ -91,8 +91,8 @@ export default function App() {
           confidence: responseJson.predictions[0].confidence,
           x: responseJson.predictions[0].x,
           y: responseJson.predictions[0].y,
-          width: responseJson.predictions[0].width + 1,
-          height: responseJson.predictions[0].height + 1,
+          width: responseJson.predictions[0].width + 8,
+          height: responseJson.predictions[0].height + 3,
         });
       } else {
         alert("No digits detected");
